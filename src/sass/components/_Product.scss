@@ -1,0 +1,224 @@
+.product {
+    margin: 0px auto;
+}
+
+.category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1305px;
+    border-radius: 100px;
+    background: rgb(242, 242, 242);
+    padding: 0 20px;
+
+    &__p {
+        color: rgb(69, 69, 69);
+        font-family: Manrope;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+        letter-spacing: 0%;
+        text-align: left;
+        opacity: 0.5;
+        cursor: pointer;
+        margin: 10px 0;
+    }
+
+    @media (max-width: 1000px) {
+        display: none;
+    }
+}
+
+.product__wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px auto;
+    gap: 14px;
+
+    @media (max-width: 1000px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 800px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.card {
+    width: 310px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: 1px solid #f8f8f8;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    transition: .3s ease-in-out;
+
+    &__like__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        color: #000;
+        margin: 0 10px;
+        margin-left: 245px;
+        background: transparent;
+    }
+
+    &__image {
+        display: flex;
+        width: 100%;
+        max-width: 173px;
+        height: 216px;
+        border-radius: 25px;
+        object-fit: contain;
+        margin: 1px auto;
+    }
+
+    &__title__h4 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        margin: 30px 0;
+        color: rgb(69, 69, 69);
+        font-family: Manrope;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 110%;
+        letter-spacing: 0%;
+        text-align: left;
+    }
+
+    &__costm {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+
+        &__left {
+            display: flex;
+            flex-wrap: wrap;
+
+            &__old {
+                width: 100%;
+                color: rgb(69, 69, 69);
+                font-family: Manrope;
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 110%;
+                letter-spacing: 0%;
+                text-align: left;
+            }
+
+            &__price {
+                color: rgb(30, 29, 29);
+                font-family: Poppins;
+                font-size: 24px;
+                font-weight: 600;
+                text-align: left;
+            }
+        }
+
+        &__right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 55px;
+            height: 33px;
+            border-radius: 100px;
+            background: rgb(69, 69, 69);
+
+            &__icon {
+                color: $light ;
+            }
+        }
+    }
+}
+
+.card:hover {
+    box-shadow: 0 0 20px 0 #ddd;
+}
+
+@media (max-width: 450px) {
+    .product__wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 20px auto;
+        gap: 8px;
+    }
+
+    .card {
+        width: 160px;
+        border-radius: 5px;
+        padding: 10px;
+        border: 1px solid #000;
+
+        &__like__button {
+            margin-left: 105px;
+        }
+
+        &__image {
+            display: flex;
+            width: 100%;
+            max-width: 173px;
+            height: 216px;
+            border-radius: 25px;
+            object-fit: contain;
+            margin: 1px auto;
+        }
+
+        &__title__h4 {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            margin: 10px 0;
+            width: 118px;
+            height: 54px;
+            color: rgb(69, 69, 69);
+            font-family: Manrope;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 110%;
+            letter-spacing: 0%;
+            text-align: left;
+        }
+
+        &__costm {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+            justify-content: space-between;
+            gap: 13px;
+
+            &__left {
+                display: flex;
+                flex-wrap: wrap;
+
+                &__old {
+                    font-size: 12px;
+                    font-weight: 500;
+                    line-height: 110%;
+                    letter-spacing: 0%;
+                }
+
+                &__price {
+                    width: 64px;
+                    color: rgb(69, 69, 69);
+                    font-size: 16px;
+                }
+            }
+
+            &__right {
+                width: 55px;
+                height: 33px;
+            }
+        }
+    }
+}

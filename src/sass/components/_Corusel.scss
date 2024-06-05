@@ -1,0 +1,31 @@
+.swiper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: $black;
+}
+
+.swiper-pagination-bullet {
+    background-color: black;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: gray;
+}
+
+.corisel__item {
+    width: 310px;
+    height: 112px;
+    border: 1px solid rgb(217, 217, 217);
+    padding: 21px;
+}
+
+.corisel__item__img {
+    width: 270px;
+    height: 70px;
+}

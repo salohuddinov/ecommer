@@ -1,0 +1,19 @@
+.admin {
+    .chart-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 55px auto;
+
+        .chart-item {
+            flex: 1 1 calc(50% - 30px); // 50% width minus margin
+            margin: 15px;
+
+            // Ensure charts are responsive
+            @media (max-width: 768px) {
+                flex: 1 1 100%; // Full width on smaller screens
+                margin: 15px 0;
+            }
+        }
+    }
+}

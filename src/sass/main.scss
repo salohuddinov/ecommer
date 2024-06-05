@@ -1,0 +1,23 @@
+@import "variable";
+@import "fonts";
+@import "mixins";
+@import "reset";
+
+// layput
+@import "layout/header";
+@import "layout/footer";
+
+// components
+@import "components/hero.scss";
+@import "components/Product";
+@import "components/SingleBtm";
+@import "components/HeaderTop";
+@import "components/Catalog";
+@import "components/Section";
+@import "components/Corusel";
+
+
+// pages
+@import "pages/single";
+@import "pages/Cart";
+@import "pages/home";

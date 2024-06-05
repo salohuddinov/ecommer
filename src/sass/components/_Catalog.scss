@@ -1,0 +1,212 @@
+.catalog__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px auto;
+
+    &__p {
+        color: rgb(69, 69, 69);
+        font-family: Manrope;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 55px;
+        letter-spacing: 0%;
+        text-align: left;
+        text-transform: capitalize;
+    }
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 220px;
+        height: 50px;
+        border: 1px solid rgb(69, 69, 69);
+        border-radius: 100px;
+        color: rgb(69, 69, 69);
+        font-family: Manrope;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 22px;
+        letter-spacing: 0%;
+        background: transparent;
+    }
+
+    &__button:hover {
+        background: $bg-sy;
+    }
+}
+
+.catalog__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 5px auto;
+
+    &__card {
+        display: flex;
+        justify-content: space-between;
+        width: 418px;
+        height: 250px;
+        border-radius: 20px;
+        background: rgb(242, 242, 242);
+        padding: 25px;
+
+        &__left {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 83%;
+            width: 100px;
+
+            &__p {
+                width: 100%;
+                height: 25px;
+                color: rgb(69, 69, 69);
+                font-family: Manrope;
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 110%;
+                letter-spacing: 0%;
+                text-align: left;
+            }
+
+            &__button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+                width: 100%;
+                height: 15px;
+                color: rgb(69, 69, 69);
+                font-family: Manrope;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 110%;
+                letter-spacing: 0%;
+                text-align: left;
+            }
+        }
+    }
+}
+
+@media (max-width: 1264px) {
+    .catalog__wrapper__card {
+        width: 380px;
+        height: 200px;
+
+        &__left {
+            gap: 70%;
+
+            &__p {
+                font-size: 17px;
+                line-height: 100%;
+            }
+
+            &__button {
+                gap: 10px;
+                font-size: 12px;
+                line-height: 100%;
+            }
+        }
+
+        &__right {
+            width: 170px;
+        }
+    }
+}
+
+@media (max-width: 1164px) {
+    .catalog__wrapper__card {
+        width: 300px;
+
+        &__left {
+            gap: 50%;
+
+            &__p {
+                font-size: 17px;
+                line-height: 100%;
+            }
+
+            &__button {
+                gap: 10px;
+                font-size: 12px;
+                line-height: 100%;
+            }
+        }
+
+        &__right {
+            width: 150px;
+        }
+    }
+}
+
+@media (max-width: 1164px) {
+    .catalog__wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .catalog__wrapper__card {
+        width: 300px;
+
+        &__left {
+            gap: 50%;
+
+            &__p {
+                font-size: 17px;
+                line-height: 100%;
+            }
+
+            &__button {
+                gap: 10px;
+                font-size: 12px;
+                line-height: 100%;
+            }
+        }
+
+        &__right {
+            width: 150px;
+        }
+    }
+}
+
+@media (max-width: 645px) {
+    .catalog__wrapper {
+        overflow: hidden;
+    }
+
+    .catalog__wrapper__card {
+        display: block;
+        width: auto;
+
+        &__left {
+            gap: 50%;
+
+            &__p {
+                font-size: 17px;
+                line-height: 100%;
+            }
+
+            &__button {
+                gap: 10px;
+                font-size: 12px;
+                line-height: 100%;
+            }
+        }
+
+        &__right {
+            width: 150px;
+            height: 100px;
+            margin: 20px auto;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .catalog__wrapper__card__right {
+        width: 100px;
+    }
+}
