@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import './Cart.css';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from "../../api";
 import Product from '../../components/product/Product';
@@ -10,8 +9,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 import not from '../../images/empty.png'
 
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
+// import Button from '@mui/material/Button';
+// import Dialog from '@mui/material/Dialog';
 import Slide from '@mui/material/Slide';
 
 // const BOT_TOKEN = "7060301731:AAFUiEIF-Hs_s5zEwb_kulUMJGkpLLC2dxw";
@@ -141,35 +140,35 @@ const Cart = () => {
     </div>
   );
 
-  const cardContent =
-    (<div div className="card__content" >
-      <div className="content__right">
-        <div className="sub">
-          <h4>Subtotal</h4>
-          <h4>$998</h4>
-        </div>
-        <div className="sub">
-          <h4>Shipping fee</h4>
-          <h4>$20</h4>
-        </div>
-        <div className="sub">
-          <h4>Coupon</h4>
-          <h4>No</h4>
-        </div>
-        <div className="sub">
-          <h2>TOTAL</h2>
-          <h2>${total.toFixed(1)}</h2>
-        </div>
-        <Button className='ceskout' variant="outlined" onClick={handleClickOpen}>Check out</Button>
-      </div>
-      <Dialog className='checkout'
-        open={open}
-        TransitionComponent={Transition}
-        keepMounted
-        onClose={handleClose}
-        aria-describedby="alert-dialog-slide-description"
-      >
-        {/* <h1>Make Payment</h1>
+  // const cardContent =
+  //   (<div div className="card__content" >
+  //     <div className="content__right">
+  //       <div className="sub">
+  //         <h4>Subtotal</h4>
+  //         <h4>$998</h4>
+  //       </div>
+  //       <div className="sub">
+  //         <h4>Shipping fee</h4>
+  //         <h4>$20</h4>
+  //       </div>
+  //       <div className="sub">
+  //         <h4>Coupon</h4>
+  //         <h4>No</h4>
+  //       </div>
+  //       <div className="sub">
+  //         <h2>TOTAL</h2>
+  //         <h2>${total.toFixed(1)}</h2>
+  //       </div>
+  //       <Button className='ceskout' variant="outlined" onClick={handleClickOpen}>Check out</Button>
+  //     </div>
+  //     <Dialog className='checkout'
+  //       open={open}
+  //       TransitionComponent={Transition}
+  //       keepMounted
+  //       onClose={handleClose}
+  //       aria-describedby="alert-dialog-slide-description"
+  //     >
+  {/* <h1>Make Payment</h1>
         <form className='checkout__form' action="">
           <div className="fullname">
             <input required onChange={(e) => setName(e.target.value)} value={name} type="text" placeholder='First Name' />
@@ -203,8 +202,8 @@ const Cart = () => {
           </div>
         </form>
         <button onClick={handleOrder}>Go to Payment</button> */}
-      </Dialog>
-    </div >);
+  // </Dialog>
+  // </div >);
 
   let cartContent;
   if (cartItems.length === 0) {
