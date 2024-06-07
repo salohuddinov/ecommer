@@ -1,0 +1,137 @@
+.navbar__responsive {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .header {
+        display: none;
+    }
+
+    .headertop {
+        display: none;
+    }
+
+    .navbar__responsive {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+
+        .name {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            font-size: 25px;
+            background-color: transparent;
+            transition: .5s ease-in-out;
+        }
+
+        .nav__search {
+            flex-grow: 1;
+            width: 400px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border: 1px solid rgb(68, 65, 65);
+            border-radius: 100px;
+            padding: 0 20px;
+
+            input {
+                flex-grow: 1;
+                padding: 8px 15px;
+                outline: none;
+                border: none;
+            }
+
+            .search__icon {
+                font-size: 20px;
+            }
+        }
+
+        .nav__items {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+    }
+}
+
+@media (max-width: 400px) {
+    .nav__search {
+        max-width: 300px;
+    }
+}
+
+
+.sidebar {
+    margin-top: 10px;
+    width: 100%;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+
+    .menu__button {
+        width: 328px;
+        color: rgb(255, 255, 255);
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+        letter-spacing: 0%;
+        text-align: left;
+        padding: 10px 26px;
+        border-radius: 100px;
+        background: rgb(69, 69, 69);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        margin: 15px auto;
+
+        .menu-icon {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    li {
+        padding: 10px;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        color: rgb(0, 0, 0);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 19px;
+        letter-spacing: 0%;
+        text-align: left;
+        opacity: 0.5;
+        cursor: pointer;
+        transition: .2s linear;
+
+        &:hover {
+            opacity: 1;
+            transition: .2s linear;
+        }
+    }
+}
+
+.sidebar.show {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.empty__line {
+    width: 100px;
+}
+
+.nav__info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}

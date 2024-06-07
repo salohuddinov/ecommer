@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Product from '../../components/product/Product'
+import React, { memo, useEffect, useState } from "react";
 import axios from "../../api";
+import Product from '../../components/product/Product';
 import Herocontent from "../../components/hero/Herocontent";
 import Catalog from "../../components/catalog/Catalog";
 import Section from "../../components/section/Section";
 import Corusel from "../../components/corusel/Corusel";
+import Skeleton from '../../components/skeleton/Skeleton';
 
 const Home = () => {
     const [data, setData] = useState([]);
@@ -12,34 +13,40 @@ const Home = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
-
+        window.scrollTo(0, 0);
+    }, []);
 
     useEffect(() => {
         setLoading(true);
-        axios
-            .get(`/products?limit=${count}`)
-            .then((res) => {
-                setData(res.data.products);
-                setLoading(false);
+        axios.get(`/products?limit=${count}`)
+            .then((response) => {
+                setData(response.data.products);
             })
-            .catch((err) => {
-                console.log(err);
+            .catch((error) => {
+                console.error("Error fetching data:", error);
+            })
+            .finally(() => {
                 setLoading(false);
             });
     }, [count]);
+
+    const handleSeeMore = () => {
+        setCount((prevCount) => prevCount + 4);
+    };
 
     return (
         <>
             <Herocontent />
             <Catalog />
             <Section />
-            <Product data={data} />
-            {/* <Product data={data.slice(0, 12)} /> */}
+            {loading ? (
+                <Skeleton count={count} />
+            ) : (
+                <Product data={data} onSeeMore={handleSeeMore} />
+            )}
             <Corusel />
         </>
-    )
-}
+    );
+};
 
-export default Home
+export default memo(Home);

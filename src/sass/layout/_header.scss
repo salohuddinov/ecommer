@@ -29,6 +29,7 @@
         height: 50px;
         border-radius: 100px;
         background: rgb(69, 69, 69);
+        transition: .4s ease-in-out;
 
         &__p {
           color: rgb(255, 255, 255);
@@ -42,7 +43,7 @@
       }
 
       .nav__actions__button:hover {
-        background: #eee;
+        background: #cacaca;
       }
 
       .nav__search__box {
@@ -109,13 +110,13 @@
   .nav__button {
     display: flex;
     flex-wrap: wrap;
-    width: 68px;
-    height: 41px;
+    width: 18px;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
     background: transparent;
     transition: .3s ease-in;
+    padding: 0 25px;
 
     .nav__wishlist__link {
       display: flex;
@@ -160,9 +161,9 @@
     }
   }
 
-  .nav__button:hover {
-    background: #eeeeee;
-  }
+  // .nav__button:hover {
+  //   background: #eeeeee;
+  // }
 }
 
 

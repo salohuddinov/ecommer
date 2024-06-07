@@ -9,6 +9,12 @@
     box-shadow: 0 0 15px 0 #ddd;
     padding: 20px;
     color: black;
+
+}
+
+
+.serch__item::-webkit-scrollbar-thumb {
+    display: none;
 }
 
 .serch__item {

@@ -3,6 +3,13 @@
     justify-content: center;
     gap: 14px;
     flex-wrap: wrap;
+    margin: 50px 0;
+}
+
+.skeleton__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .skeleton__image {
@@ -28,11 +35,15 @@
 .skeleton__anime {
     background: linear-gradient(90deg, #f7f7f7, #ddd, #f7f7f7);
     background-size: 200%;
-    animation: skeletonAnime 1s linear 0s infinite;
+    animation: skeletonAnime 1s linear infinite;
 }
 
 @keyframes skeletonAnime {
-    to {
-        background-position: 200%;
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
     }
 }
