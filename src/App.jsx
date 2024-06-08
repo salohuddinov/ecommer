@@ -16,6 +16,8 @@ import Garant from './pages/garant/Garant'
 import Возврат from './pages/возврат/Возврат'
 import Dostafka from './pages/dostafka/Dostafka'
 import Compan from './pages/compan/Compan'
+import Allproduct from './pages/allproduct/Allproduct'
+import Login from './pages/login/Login'
 
 function App() {
 
@@ -28,6 +30,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/single/:id" element={<Single />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
@@ -35,6 +38,7 @@ function App() {
         <Route path="/возврат" element={<Возврат />} />
         <Route path="/dostafka" element={<Dostafka />} />
         <Route path="/compan" element={<Compan />} />
+        <Route path="/allproduct" element={<Allproduct />} />
         <Route path='*'
           element={<div className='container'>
             <img className='notempty container' src={not} alt="404 not found this page" />

@@ -19,9 +19,9 @@ const Product = ({ data }) => {
         <div className="container">
             <div className="catalog__title">
                 <p className='catalog__title__p'>Популярные товары</p>
-                <button className='catalog__title__button'>
-                    Весь каталог <EastIcon />
-                </button>
+                <Link to={"/allproduct"} className='catalog__title__button'>
+                    Все товары <EastIcon />
+                </Link>
             </div>
             <div className="category">
                 <p className="category__p">Светильники</p>

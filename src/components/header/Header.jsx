@@ -26,8 +26,8 @@ const Header = () => {
     const carts = useSelector((state) => state.cart.value);
 
     useEffect(() => {
-        axios.get("https://dummyjson.com/products")
-            .then(res => setData(res.data.products))
+        axios.get("https://6634b1ce9bb0df2359a26949.mockapi.io/api/products")
+            .then(res => setData(res.data))
             .catch(err => console.log(err));
     }, []);
 
@@ -94,7 +94,7 @@ const Header = () => {
                                                 <Link to={`/single/${product.id}`}>
                                                     <h4 className='serch__const__div__h4'>{product.title}</h4>
                                                 </Link>
-                                                <img className='serch__const__div__img' src={product.thumbnail} alt={product.title} />
+                                                <img className='serch__const__div__img' src={product.image} alt={product.title} />
                                             </div>
                                         ))
                                     ) : (

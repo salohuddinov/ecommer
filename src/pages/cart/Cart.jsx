@@ -171,14 +171,18 @@ const Cart = () => {
   return (
     <div className="container">
       <div className="naviget">
-        <div className="naviget__item">
-          <Link to={"/"} className='naviget__item__p'>Главная</Link>
-          <NavigateNextIcon className='naviget__item__p' />
-          <Link to={"/catalog"} className='naviget__item__p'>Каталог</Link>
-          <NavigateNextIcon className='naviget__item__activ' />
-          <p className='naviget__item__activ'>Корзина</p>
+        <div className="naviget__left">
+          <div className="naviget__left__info">
+            <div className="naviget__item">
+              <Link to={"/"} className='naviget__item__p'>Главная</Link>
+              <NavigateNextIcon className='naviget__item__p' />
+              <Link to={"/catalog"} className='naviget__item__p'>Каталог</Link>
+              <NavigateNextIcon className='naviget__item__activ' />
+              <p className='naviget__item__activ'>Корзина</p>
+            </div>
+            <p className='naviget__p'>Корзина</p>
+          </div>
         </div>
-        <p className='naviget__p'>Корзина</p>
       </div>
       <div className="cart">
         {cartContent}

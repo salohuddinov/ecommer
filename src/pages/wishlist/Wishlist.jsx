@@ -1,5 +1,4 @@
-import React, { memo } from "react";
-import { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import axios from "../../api";
 import { useSelector } from "react-redux";
 import Product from "../../components/product/Product";
