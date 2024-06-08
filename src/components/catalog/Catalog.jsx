@@ -11,10 +11,6 @@ function Catalog() {
     return (
         <>
             <div className="container">
-                <div className="catalog__title">
-                    <p className='catalog__title__p'>Каталог</p>
-                    <button className='catalog__title__button'>Весь каталог <EastIcon /> </button>
-                </div>
                 <div className="catalog__wrapper">
                     <div className="catalog__wrapper__card">
                         <div className="catalog__wrapper__card__left">
@@ -64,4 +60,4 @@ function Catalog() {
     )
 }
 
-export default Catalog
+export default memo(Catalog)

@@ -6,6 +6,9 @@ import Catalog from "../../components/catalog/Catalog";
 import Section from "../../components/section/Section";
 import Corusel from "../../components/corusel/Corusel";
 import Skeleton from '../../components/skeleton/Skeleton';
+import EastIcon from '@mui/icons-material/East';
+import { Link } from "react-router-dom";
+
 
 const Home = () => {
     const [data, setData] = useState([]);
@@ -20,10 +23,10 @@ const Home = () => {
         setLoading(true);
         axios.get(`/products?limit=${count}`)
             .then((response) => {
-                setData(response.data.products);
+                setData(response.data);
             })
             .catch((error) => {
-                console.error("Error fetching data:", error);
+                console.log("Error fetching data:", error);
             })
             .finally(() => {
                 setLoading(false);
@@ -37,6 +40,10 @@ const Home = () => {
     return (
         <>
             <Herocontent />
+            <div className="catalog__title container">
+                <p className='catalog__title__p'>Каталог</p>
+                <Link to={"/catalog"} className='catalog__title__button'>Весь каталог <EastIcon /> </Link>
+            </div>
             <Catalog />
             <Section />
             {loading ? (

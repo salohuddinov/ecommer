@@ -70,7 +70,7 @@ const Header = () => {
                     </NavLink>
                     <div className="nav__actions">
                         <button className='nav__actions__button'>
-                            <NavLink to="#" className="nav__actions__button">
+                            <NavLink to="/catalog" className="nav__actions__button">
                                 <img src={menu} alt="Menu" />
                                 <p className='nav__actions__button__p'>Каталог</p>
                             </NavLink>

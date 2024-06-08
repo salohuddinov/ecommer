@@ -13,7 +13,7 @@ const Wishlist = () => {
     window.scrollTo(0, 0);
     axios
       .get("/products")
-      .then((res) => setData(res.data.products))
+      .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
 
@@ -22,12 +22,12 @@ const Wishlist = () => {
       {wishes.length ? (
         <Product title="Wishlist" data={wishes} />
       ) : (
-        <img className="wish" src={wish} alt="" />
+        <img className="not__found container" src={wish} alt="" />
       )}
       <br />
       <br />
       <br />
-      <Product title="RELATED PRODUCTS" data={data.slice(0, 4)} />
+      <Product data={data.slice(0, 4)} />
     </>
   );
 };

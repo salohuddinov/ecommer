@@ -1,48 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from "../../api";
 import Product from '../../components/product/Product';
 import { incCart, decCart, removeFromCart } from '../../context/cartSlice';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import DeleteIcon from '@mui/icons-material/Delete';
-import logo1 from '../../images/logo.svg'
-
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import not from '../../images/empty.png'
-
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import Slide from '@mui/material/Slide';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import { Link } from 'react-router-dom';
 
 const BOT_TOKEN = "7060301731:AAFUiEIF-Hs_s5zEwb_kulUMJGkpLLC2dxw";
 const CHAT_ID = "-1002035416931";
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
-
 
 const Cart = () => {
-  const [open, setOpen] = React.useState(false);
   const [data, setData] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     axios
       .get("/products")
-      .then((res) => setData(res.data.products))
+      .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
   const calculateTotalPrice = () => {
     let totalPrice = 0;
     cart.forEach((product) => {
@@ -52,6 +35,7 @@ const Cart = () => {
   };
   let cart = useSelector((state) => state.cart.value);
   const dispatch = useDispatch();
+
   const handleDecrement = (el) => {
     if (el.quantity <= 1) {
       dispatch(removeFromCart(el));
@@ -60,16 +44,17 @@ const Cart = () => {
     }
   };
   const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [adres, setAdres] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [showOverlay, setShowOverlay] = useState(false);
   let total = 0;
 
   let itemss = cart?.map((el, index) => {
     const subtotal = el.price * el.quantity;
     total += subtotal;
   });
+
+
 
   const handleOrder = (e) => {
     e.preventDefault()
@@ -81,10 +66,11 @@ const Cart = () => {
       return toast.warn("Malumot to'liq emas")
     }
     let text = "Buyurtma %0A%0A";
-    text += ` Ism: ${name} %0A`;
-    text += `Familiya: ${lastName} %0A`;
-    text += `Email: ${email} %0A`;
+    text += ` ФИО: ${name} %0A`;
     text += `Telefon raqami: ${phone} %0A`;
+    text += `Email: ${email} %0A`;
+    text += `Adres: ${adres} %0A`;
+
     cart.forEach((product) => {
       text += `${product.title} %0A`;
       text += `Narxi: ${product.price} %0A`;
@@ -98,124 +84,102 @@ const Cart = () => {
     api.open("GET", url, true);
     api.send();
     setName("");
-    setLastName("");
+    setAdres("");
     setEmail("");
     setPhone("");
-    setShowOverlay(false);
     cart.forEach((product) => {
       dispatch(removeFromCart(product));
     });
-    setOpen(false);
   };
 
 
   let cartItems = cart?.map((el) => (
-    <div key={el.id} className='items'>
-      <div className="items__img">
-        <img className='cart__img' src={el.thumbnail} width={100} alt={el.brand} />
-        <p>{el.title}</p>
-      </div>
-      <h3>{el.price}</h3>
-      <div className="inc__dec">
-        <h4>{el.quantity}</h4>
-        <div className="dec">
-          <button onClick={() => dispatch(incCart(el))}> <KeyboardArrowUpIcon /> </button>
-          <button onClick={() => handleDecrement(el)}> <KeyboardArrowDownIcon /> </button>
+    <div key={el.id} className='carts__top__items'>
+      <div className="carts__top__items__left">
+        <img className='carts__top__items__left__img' src={el.image} width={100} alt={el.brand} />
+        <div className="carts__top__items__left__text">
+          <p className='carts__top__items__left__text__title'>{el.title}</p>
+          <p className='carts__top__items__left__text__price'>{el.price.toFixed(1)} ₽</p>
         </div>
       </div>
-      <div className="subtotal">
-        <h3>{(el.price * el.quantity).toFixed(1)}</h3>
+      <p className='carts__top__items__p'>Светильник RADUGA COMBO XS Промышленное освещение; 50Вт; 230В; S4; XS;</p>
+      <p className='carts__top__items__ollprice'>{(el.price * el.quantity).toFixed(1)} ₽</p>
+      <div className="carts__top__items__right">
+        <div className="carts__top__items__right__sort">
+          <button className='carts__top__items__right__sort__button' onClick={() => handleDecrement(el)}> - </button>
+          <div className="carts__top__items__right__sort__quaint">
+            <p className='carts__top__items__right__sort__quaint__p'>{el.quantity}</p>
+          </div>
+          <button className='carts__top__items__right__sort__button' onClick={() => dispatch(incCart(el))}> + </button>
+        </div>
+        <button className='carts__top__items__right__button' onClick={() => dispatch(removeFromCart(el))}> <DeleteForeverIcon /> </button>
       </div>
-      <button onClick={() => dispatch(removeFromCart(el))}> <DeleteIcon /> </button>
     </div>
   ));
 
   const cartItemtop = (
-    <div className="cartd">
-      <h2>PRODUCT</h2>
-      <div className="cartd__right">
-        <h2>PRICE</h2>
-        <h2>QTY</h2>
-        <h2>UNIT PRICE</h2>
+    <div className="carts__top__info">
+      <div className="carts__top__info__left">
+        <p className='carts__top__info__left__p'>Фото</p>
+        <p className='carts__top__info__left__p'>Товары</p>
+      </div>
+      <p className='carts__top__info__left__p'>Описание</p>
+      <div className="carts__top__info__right">
+        <p className='carts__top__info__left__p'>Артикул</p>
+        <p className='carts__top__info__left__p'>Количество</p>
       </div>
     </div>
   );
 
   const cardContent =
-    (<div div className="card__content" >
-      <div className="content__right">
-        <div className="sub">
-          <h4>Subtotal</h4>
-          <h4>$998</h4>
-        </div>
-        <div className="sub">
-          <h4>Shipping fee</h4>
-          <h4>$20</h4>
-        </div>
-        <div className="sub">
-          <h4>Coupon</h4>
-          <h4>No</h4>
-        </div>
-        <div className="sub">
-          <h2>TOTAL</h2>
-          <h2>${total.toFixed(1)}</h2>
-        </div>
-        <Button className='ceskout' variant="outlined" onClick={handleClickOpen}>Check out</Button>
+    (<form className='checkout__form' action="">
+      <p className='checkout__form__p'>Оформление</p>
+      <div className="checkout__form__intro">
+        <input required onChange={(e) => setName(e.target.value)} value={name} type="text" placeholder='ФИО' />
+        <input required onChange={(e) => setPhone(e.target.value)} value={phone} type="text" placeholder='телефон' />
+        <input required onChange={(e) => setEmail(e.target.value)} value={email} type="text" placeholder='Электронная почта' />
       </div>
-      <Dialog className='checkout'
-        open={open}
-        TransitionComponent={Transition}
-        keepMounted
-        onClose={handleClose}
-        aria-describedby="alert-dialog-slide-description"
-      >
-        <h1>Make Payment</h1>
-        <form className='checkout__form' action="">
-          <div className="fullname">
-            <input required onChange={(e) => setName(e.target.value)} value={name} type="text" placeholder='First Name' />
-            <input onChange={(e) => lastName(e.target.value)} value={lastName} type="text" placeholder='Last Name' />
-          </div>
-          <div className="adrec">
-            <input required onChange={(e) => setEmail(e.target.value)} value={email} type="text" placeholder='Email Address' />
-            <input required onChange={(e) => setPhone(e.target.value)} value={phone} type="text" placeholder='Mobile Phone' />
-          </div>
-          <textarea placeholder='Address for Delivery' required></textarea>
-          <div className="select__card">
-            <div className="select__title">
-              <img src={logo1} alt="" />
-              <h4>Credit Card Or Debit</h4>
-            </div>
-            <input type="checkbox" />
-          </div>
-          <div className="select__card">
-            <div className="select__title">
-              <img src={logo1} alt="" />
-              <h4>Paypal</h4>
-            </div>
-            <input type="checkbox" />
-          </div>
-          <div className="select__card">
-            <div className="select__title">
-              <img src={logo1} alt="" />
-              <h4>Bank Transfer</h4>
-            </div>
-            <input type="checkbox" />
-          </div>
-        </form>
-        <button onClick={handleOrder}>Go to Payment</button>
-      </Dialog>
-    </div >);
-
+      <div className="checkout__form__adrec">
+        <p className='checkout__form__p'>Доставка</p>
+        <input className='checkout__form__adrec__input' required onChange={(e) => setAdres(e.target.value)} value={adres} type="text" placeholder='Адрес доставки' />
+        <textarea className='checkout__form__adrec__text' placeholder='Address for Delivery' required></textarea>
+      </div>
+    </form>
+    );
+  const oplata = (
+    <div className="oplata">
+      <p className='checkout__form__p'>Оплата</p>
+      <div className="oplata__top">
+        <p className='oplata__top__p'>Товары................................................{total.toFixed(1)} ₽</p>
+        <p className='oplata__top__p'>Доставка..............................................580₽</p>
+      </div>
+      <p className='oplata__price'>{total.toFixed(1)} ₽</p>
+      <div className="oplata__cupit">
+        <button className='oplata__cupit__button' onClick={handleOrder}>Купить</button>
+        <p className='oplata__cupit__p'>Я согласен наобработку моих персональных данных</p>
+      </div>
+    </div>
+  )
   let cartContent;
   if (cartItems.length === 0) {
-    cartContent = (<img className="wish" src={not} alt="" />
+    cartContent = (<img className="not__found container" src={not} alt="" />
     );
   } else {
-    cartContent = <div className="carts">{cartItemtop} {cartItems} {cardContent}</div>;
+    cartContent = <div className="carts"><div className="carts__top">{cartItemtop} {cartItems}</div> {cardContent}{oplata}</div>;
   }
 
   return (
     <div className="container">
+      <div className="naviget">
+        <div className="naviget__item">
+          <Link to={"/"} className='naviget__item__p'>Главная</Link>
+          <NavigateNextIcon className='naviget__item__p' />
+          <Link to={"/catalog"} className='naviget__item__p'>Каталог</Link>
+          <NavigateNextIcon className='naviget__item__activ' />
+          <p className='naviget__item__activ'>Корзина</p>
+        </div>
+        <p className='naviget__p'>Корзина</p>
+      </div>
       <div className="cart">
         {cartContent}
       </div>
@@ -224,4 +188,4 @@ const Cart = () => {
   );
 }
 
-export default Cart;
+export default memo(Cart);

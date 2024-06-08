@@ -1,5 +1,4 @@
-// import React, {  } from 'react';
-import React, { memo, useRef, useState } from 'react';
+import React, { memo, } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';

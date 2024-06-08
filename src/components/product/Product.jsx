@@ -35,44 +35,48 @@ const Product = ({ data }) => {
             </div>
             <div className="product">
                 <div className="product__wrapper">
-                    {data?.map((product) => (
-                        <div key={product.id} className="card">
-                            <button
-                                className='card__like__button'
-                                onClick={() => dispatch(toggleToWishes(product))}
-                            >
-                                {wishes.some((w) => w.id === product.id) ? (
-                                    <FavoriteIcon />
-                                ) : (
-                                    <FavoriteBorderIcon />
-                                )}
-                            </button>
-                            <img
-                                className='card__image'
-                                src={product.thumbnail}
-                                alt={product.title}
-                            />
-                            <Link to={`/single/${product.id}`}>
-                                <h4 className='card__title__h4'>{product.title}</h4>
-                            </Link>
-                            <div className="card__costm">
-                                <div className="card__costm__left">
-                                    <p className="card__costm__left__old">{product.discountPercentage} ₽</p>
-                                    <p className="card__costm__left__price">{product.price} ₽</p>
-                                </div>
+                    {data?.map((product) => {
+                        const discountRate = 0.1;
+                        const oldPrice = product.price / (1 - discountRate);
+                        return (
+                            <div key={product.id} className="card">
                                 <button
-                                    className='card__costm__right'
-                                    onClick={() => dispatch(addToCart(product))}
+                                    className='card__like__button'
+                                    onClick={() => dispatch(toggleToWishes(product))}
                                 >
-                                    {cart.some((c) => c.id === product.id) ? (
-                                        <ShoppingCartRoundedIcon className="card__costm__right__icon" />
+                                    {wishes.some((w) => w.id === product.id) ? (
+                                        <FavoriteIcon />
                                     ) : (
-                                        <ShoppingCartOutlinedIcon className="card__costm__right__icon" />
+                                        <FavoriteBorderIcon />
                                     )}
                                 </button>
+                                <img
+                                    className='card__image'
+                                    src={product.image}
+                                    alt={product.title}
+                                />
+                                <Link to={`/single/${product.id}`}>
+                                    <h4 className='card__title__h4'>{product.title}</h4>
+                                </Link>
+                                <div className="card__costm">
+                                    <div className="card__costm__left">
+                                        <s className="card__costm__left__oldprice">{oldPrice.toFixed(2)} ₽</s>
+                                        <p className="card__costm__left__price">{product.price} ₽</p>
+                                    </div>
+                                    <button
+                                        className='card__costm__right'
+                                        onClick={() => dispatch(addToCart(product))}
+                                    >
+                                        {cart.some((c) => c.id === product.id) ? (
+                                            <ShoppingCartRoundedIcon className="card__costm__right__icon" />
+                                        ) : (
+                                            <ShoppingCartOutlinedIcon className="card__costm__right__icon" />
+                                        )}
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </div>
