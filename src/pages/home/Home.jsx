@@ -32,10 +32,6 @@ const Home = () => {
             });
     }, [count]);
 
-    const handleSeeMore = () => {
-        setCount((prevCount) => prevCount + 4);
-    };
-
     return (
         <>
             <Herocontent />
@@ -48,7 +44,7 @@ const Home = () => {
             {loading ? (
                 <Skeleton count={count} />
             ) : (
-                <Product data={data} onSeeMore={handleSeeMore} />
+                <Product data={data} />
             )}
             <Corusel />
         </>

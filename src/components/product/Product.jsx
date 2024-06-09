@@ -9,7 +9,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import EastIcon from '@mui/icons-material/East';
 
-const Product = ({ data, onSeeMore }) => {
+const Product = ({ data }) => {
     const dispatch = useDispatch();
     const wishes = useSelector((state) => state.wishlist.value);
     const cart = useSelector((state) => state.cart.value);
@@ -70,7 +70,6 @@ const Product = ({ data, onSeeMore }) => {
                         );
                     })}
                 </div>
-                <button className="see-more-button" onClick={onSeeMore}>See More</button>
             </div>
         </div>
     );

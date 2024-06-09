@@ -3,7 +3,6 @@ import { useGetProductQuery, useDeleteProductMutation } from "../../context/prod
 import { toast } from "react-toastify";
 import { CiEdit } from "react-icons/ci";
 import { FaRegTrashAlt } from "react-icons/fa";
-import EditProductOverlay from "../../components/editproduct/EditProduct";
 
 const ManageProducts = () => {
     const { data: products, isLoading, isError } = useGetProductQuery();

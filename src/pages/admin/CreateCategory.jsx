@@ -1,8 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useGetCategoryQuery, useCreateCategoryMutation, } from "../../context/categoryApi";
 import { toast } from "react-toastify";
-// import Loading from "../../components/loading/Loading";
-import Button from "@mui/material/Button";
 
 const CreateCategory = () => {
     const title = useRef();
