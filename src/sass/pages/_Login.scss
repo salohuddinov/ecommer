@@ -1,0 +1,108 @@
+.login {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px #ddd;
+    padding: 64px;
+    margin: 135px auto;
+
+    &__img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+        margin: 20px auto;
+        margin-top: 0;
+    }
+
+    &__input {
+        width: 100%;
+        max-width: 656px;
+        border: 1px solid rgb(69, 69, 69);
+        background: transparent;
+        border-radius: 100px;
+        margin: 15px 0;
+        padding: 15px 20px;
+        color: rgb(69, 69, 69);
+        font-family: Manrope;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 130%;
+        letter-spacing: 0%;
+        text-align: left;
+        transition: .4s ease;
+    }
+
+    &__input:hover,
+    .login__passwort:hover {
+        border: 1px solid #727272;
+        box-shadow: 0 0 8px 0 #ddd;
+    }
+
+    .login__passwort {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 656px;
+        border: 1px solid rgb(69, 69, 69);
+        background: transparent;
+        border-radius: 100px;
+        margin: 15px 0;
+        padding: 15px 20px;
+        transition: .4s ease;
+
+        &__input {
+            width: 100%;
+            color: rgb(69, 69, 69);
+            font-family: Manrope;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 130%;
+            letter-spacing: 0%;
+            text-align: left;
+            background: transparent;
+            outline: none;
+            border: none;
+        }
+
+        &__button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            font-size: 25px;
+            background: transparent;
+            color: rgb(69, 69, 69);
+            font-weight: 600;
+            line-height: 130%;
+        }
+    }
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        max-width: 656px;
+        height: 50px;
+        border-radius: 100px;
+        background: rgb(69, 69, 69);
+        color: rgb(255, 255, 255);
+        font-family: Manrope;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: -1px;
+        letter-spacing: 0%;
+        text-align: center;
+        transition: .4s ease;
+        margin-top: 55px;
+    }
+
+    &__button:hover {
+        box-shadow: 0 0 7px #ddd;
+    }
+}

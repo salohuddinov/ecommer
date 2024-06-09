@@ -1,0 +1,55 @@
+.create__products__p {
+    color: rgb(69, 69, 69);
+    font-family: Manrope;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: 0%;
+    text-align: left;
+    margin: 30px 0;
+}
+
+.create__products__form {
+    width: 620px;
+
+    &__input,
+    &__textra {
+        width: 620px;
+        height: 58px;
+        border-radius: 10px;
+        background: rgb(248, 248, 248);
+        border: 1px solid #ddd;
+        outline: none;
+        margin: 15px 0;
+        padding: 0 20px;
+        color: rgb(76, 76, 76);
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 160%;
+        letter-spacing: 0%;
+        text-align: left;
+    }
+
+    &__textra {
+        width: 620px;
+        height: 164px;
+        border-radius: 10px;
+        background: rgb(248, 248, 248);
+        padding: 20px;
+    }
+
+    &__button {
+        width: 180px;
+        height: 46px;
+        border-radius: 5px;
+        background: rgb(69, 69, 69);
+        color: rgb(255, 255, 255);
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 123%;
+        letter-spacing: 0%;
+        text-align: center;
+    }
+}

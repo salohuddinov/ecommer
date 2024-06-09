@@ -112,7 +112,7 @@ const Header = () => {
                             </div>
                             <p className='nav__button__p'>Избранное</p>
                         </Link>
-                        <Link className='nav__button' to="/admin">
+                        <Link className='nav__button'>
                             <div className="nav__wishlist__link">
                                 <img className='nav__wishlist__link__icon' src={ant} alt="Compare" />
                                 <p className='nav__button__p'>Сравнение</p>

@@ -1,19 +1,78 @@
 .admin {
-    .chart-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin: 55px auto;
+    display: flex;
 
-        .chart-item {
-            flex: 1 1 calc(50% - 30px); // 50% width minus margin
-            margin: 15px;
+    &__panel {
+        width: 400px;
+        height: 100vh;
+        background: rgb(69, 69, 69);
+        padding: 20px;
+        position: sticky;
+        left: 0;
+        top: 0;
 
-            // Ensure charts are responsive
-            @media (max-width: 768px) {
-                flex: 1 1 100%; // Full width on smaller screens
-                margin: 15px 0;
+        &__title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+
+            &__p {
+                display: flex;
+                align-items: center;
+                color: rgb(255, 255, 255);
+                font-family: Manrope;
+                font-size: 28px;
+                font-weight: 600;
+                line-height: -1px;
+                letter-spacing: 0%;
+                text-align: left;
             }
+        }
+
+        &__link__item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 0 20px;
+            width: 100%;
+            max-width: 330px;
+            height: 40px;
+            border-radius: 8px;
+            margin: 10px 0;
+            color: rgb(255, 255, 255);
+            font-family: Manrope;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: -1px;
+            letter-spacing: 0%;
+            text-align: left;
+            transition: .4s ease;
+        }
+
+        &__link__item:hover,
+        .admin__panel__button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        &__button {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 0 20px;
+            width: 100%;
+            max-width: 330px;
+            height: 40px;
+            border-radius: 8px;
+            transition: .4s ease;
+            background: transparent;
+            margin-top: 350px;
+            color: rgb(255, 255, 255);
+            font-family: Manrope;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: -1px;
+            letter-spacing: 0%;
+            text-align: left;
         }
     }
 }

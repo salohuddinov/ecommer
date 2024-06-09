@@ -8,9 +8,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import EastIcon from '@mui/icons-material/East';
-import PropTypes from 'prop-types';
 
-const Product = ({ data }) => {
+const Product = ({ data, onSeeMore }) => {
     const dispatch = useDispatch();
     const wishes = useSelector((state) => state.wishlist.value);
     const cart = useSelector((state) => state.cart.value);
@@ -40,21 +39,14 @@ const Product = ({ data }) => {
                         const oldPrice = product.price / (1 - discountRate);
                         return (
                             <div key={product.id} className="card">
-                                <button
-                                    className='card__like__button'
-                                    onClick={() => dispatch(toggleToWishes(product))}
-                                >
+                                <button className='card__like__button' onClick={() => dispatch(toggleToWishes(product))}>
                                     {wishes.some((w) => w.id === product.id) ? (
                                         <FavoriteIcon />
                                     ) : (
                                         <FavoriteBorderIcon />
                                     )}
                                 </button>
-                                <img
-                                    className='card__image'
-                                    src={product.image}
-                                    alt={product.title}
-                                />
+                                <img className='card__image' src={product.image} alt={product.title} />
                                 <Link to={`/single/${product.id}`}>
                                     <h4 className='card__title__h4'>{product.title}</h4>
                                 </Link>
@@ -78,13 +70,10 @@ const Product = ({ data }) => {
                         );
                     })}
                 </div>
+                <button className="see-more-button" onClick={onSeeMore}>See More</button>
             </div>
         </div>
     );
-};
-
-Product.propTypes = {
-    data: PropTypes.array.isRequired,
 };
 
 export default memo(Product);

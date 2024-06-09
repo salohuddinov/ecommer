@@ -9,10 +9,9 @@ import Skeleton from '../../components/skeleton/Skeleton';
 import EastIcon from '@mui/icons-material/East';
 import { Link } from "react-router-dom";
 
-
 const Home = () => {
     const [data, setData] = useState([]);
-    const [count, setCount] = useState(8);
+    const [count, setCount] = useState(4);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {

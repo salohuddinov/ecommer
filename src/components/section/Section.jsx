@@ -4,6 +4,7 @@ import farme from '../../images/frame.png'
 import farme1 from '../../images/frame1.png'
 import farme2 from '../../images/frame2.png'
 import farme3 from '../../images/frame3.png'
+import { Link } from 'react-router-dom';
 
 
 function Section() {
@@ -13,7 +14,7 @@ function Section() {
                 <div className="section">
                     <div className="catalog__title">
                         <p className='catalog__title__p'>Почему NORNLIGHT?</p>
-                        <button className='catalog__title__button'>Весь каталог <EastIcon /> </button>
+                        <Link to={"/compan"} className='catalog__title__button'>О компании <EastIcon /> </Link>
                     </div>
                     <div className="section__wrapper">
                         <div className="section__wrapper__card">

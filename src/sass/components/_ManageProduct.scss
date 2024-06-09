@@ -1,0 +1,98 @@
+.admin__wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    gap: 14px;
+
+    &__card {
+        width: 285px;
+        border: 1px solid #eee;
+        padding: 14px;
+        border-radius: 10px;
+        transition: .4s ease;
+
+        &__img {
+            display: flex;
+            margin: 0 auto;
+            width: 173px;
+            height: 200px;
+            object-fit: contain;
+        }
+
+        &__p {
+            width: 227px;
+            color: rgb(69, 69, 69);
+            font-family: Manrope;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 110%;
+            letter-spacing: 0%;
+            text-align: left;
+            margin: 22px 0;
+        }
+    }
+
+    &__card:hover {
+        box-shadow: 0 0 8px #ddd;
+    }
+
+    .admin__wrapper__card__body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__left {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            align-items: center;
+            gap: 5px;
+
+            &__oldprice {
+                color: rgb(159, 159, 159);
+                font-family: Manrope;
+                font-size: 12px;
+                font-weight: 500;
+                line-height: 110%;
+                letter-spacing: 0%;
+                text-align: left;
+            }
+
+            &__price {
+                color: rgb(69, 69, 69);
+                font-family: Manrope;
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 110%;
+                letter-spacing: 0%;
+                text-align: left;
+            }
+        }
+
+        &__right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+
+            &__edit {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 55px;
+                height: 33px;
+                border-radius: 100px;
+                background: rgb(69, 69, 69);
+                color: #fff;
+                font-size: 18px;
+                font-weight: 700;
+                border: 1px solid #000;
+                transition: .3s ease;
+            }
+
+            &__edit:hover {
+                color: #000;
+                background: transparent;
+            }
+        }
+    }
+}

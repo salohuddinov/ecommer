@@ -16,6 +16,9 @@
 @import "components/Section";
 @import "components/Corusel";
 @import "components/Navbar.scss";
+@import "components/CreateProduct";
+@import "components/ManageProduct";
+@import "components/CreateCategory";
 
 
 // pages
@@ -25,3 +28,5 @@
 @import "pages/wishlist";
 @import "pages/Blog";
 @import "pages/Contact";
+@import "pages/Login";
+@import "pages/Admin";
